@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/MHMasoon/masoon-coin/issues"
   },
-  "homepage": "https://github.com/MHMasoon/masoon-coin#readme"
+  "homepage": "https://github.com/MHMasoon/masoon-coin#readme",
+  "dependencies": {
+    "solc": "^0.8.16"
+  }
 }
