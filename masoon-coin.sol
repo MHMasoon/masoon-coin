@@ -9,4 +9,8 @@ contract MasoonCoin {
     function symbol() pure public returns (string memory) {
         return 'MSC';
     }
+
+    function decimals() pure public returns (uint8) {
+        return 0;
+    }
 }
