@@ -17,4 +17,10 @@ contract MasoonCoin {
     function totalSupply() pure public returns (uint256) {
         return 1000000000000000000; // 10^18
     }
+
+    mapping(address => uint64) accountBalance;
+
+    function balanceOf(address _owner) public view returns (uint256 balance) {
+        return accountBalance[_owner];
+    }
 }
