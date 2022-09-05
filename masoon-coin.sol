@@ -49,4 +49,13 @@ contract MasoonCoin {
             // Throw
         }
     }
+
+    mapping(address => mapping(address => uint64)) allowances;
+
+    // This function has a vulnerability (An Attack Vector on Approve/TransferFrom Methods)
+    function approve(address _spender, uint256 _value) public returns (bool success) {
+        address sender = msg.sender;
+        allowances[sender][_spender] = _value;
+        return true;
+    }
 }
