@@ -18,13 +18,13 @@ contract MasoonCoin {
         return 1000000000000000000; // 10^18
     }
 
-    mapping(address => uint64) accountBalance;
+    mapping(address => uint256) accountBalance;
 
     function balanceOf(address _owner) public view returns (uint256 balance) {
         return accountBalance[_owner];
     }
 
-    function transfer(address _to, uint64 _value) public returns (bool success) {
+    function transfer(address _to, uint256 _value) public returns (bool success) {
         address sender = msg.sender;
         if (balanceOf(sender) >= _value) {
             accountBalance[sender] -= _value;
@@ -43,6 +43,7 @@ contract MasoonCoin {
         if (accountBalance[_from] >= _value) {
             accountBalance[_from] -= _value;
             accountBalance[_to] += _value;
+            return true;
             // Fire the transfer event
             // allow 0 transfer ?
         } else {
@@ -50,7 +51,7 @@ contract MasoonCoin {
         }
     }
 
-    mapping(address => mapping(address => uint64)) allowances;
+    mapping(address => mapping(address => uint256)) allowances;
 
     // This function has a vulnerability (An Attack Vector on Approve/TransferFrom Methods)
     function approve(address _spender, uint256 _value) public returns (bool success) {
