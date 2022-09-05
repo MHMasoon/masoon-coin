@@ -37,4 +37,16 @@ contract MasoonCoin {
             // I should throw
         }
     }
+
+    function transferFrom(address _from, address _to, uint256 _value) public returns (bool success) {
+        // At first I should check if the msg.sender has the authority to transfer from this accout
+        if (accountBalance[_from] >= _value) {
+            accountBalance[_from] -= _value;
+            accountBalance[_to] += _value;
+            // Fire the transfer event
+            // allow 0 transfer ?
+        } else {
+            // Throw
+        }
+    }
 }
