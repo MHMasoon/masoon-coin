@@ -23,4 +23,18 @@ contract MasoonCoin {
     function balanceOf(address _owner) public view returns (uint256 balance) {
         return accountBalance[_owner];
     }
+
+    function transfer(address _to, uint64 _value) public returns (bool success) {
+        address sender = msg.sender;
+        if (balanceOf(sender) >= _value) {
+            accountBalance[sender] -= _value;
+            accountBalance[_to] += _value;
+            // Here I should fire the Transfer event
+            // I should decide to allow 0 transfer or not
+            return true;
+        }
+        else {
+            // I should throw
+        }
+    }
 }
