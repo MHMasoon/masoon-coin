@@ -45,7 +45,7 @@ contract MasoonCoin {
         address sender = msg.sender;
         if (accountBalance[_from] >= _value && allowances[_from][sender] >= _value) {
             accountBalance[_from] -= _value;
-            allowance[_from][sender] -= _value;
+            allowances[_from][sender] -= _value;
             accountBalance[_to] += _value;
             emit Transfer(_from, _to, _value);
             return true;
