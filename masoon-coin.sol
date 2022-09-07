@@ -20,6 +20,8 @@ contract MasoonCoin {
 
     event Transfer(address indexed _from, address indexed _to, uint256 _value);
 
+    event Approval(address indexed _owner, address indexed _spender, uint256 _value);
+
     mapping(address => uint256) accountBalance;
 
     function balanceOf(address _owner) public view returns (uint256 balance) {
@@ -59,8 +61,9 @@ contract MasoonCoin {
 
     // This function has a vulnerability (An Attack Vector on Approve/TransferFrom Methods)
     function approve(address _spender, uint256 _value) public returns (bool success) {
-        address sender = msg.sender;
-        allowances[sender][_spender] = _value;
+        address owner = msg.sender;
+        allowances[owner][_spender] = _value;
+        emit Approval(owner, _spender, _value);
         return true;
     }
 
