@@ -19,7 +19,7 @@ contract MasoonCoin {
     }
 
     event Transfer(address indexed _from, address indexed _to, uint256 _value);
-    
+
     mapping(address => uint256) accountBalance;
 
     function balanceOf(address _owner) public view returns (uint256 balance) {
@@ -31,6 +31,7 @@ contract MasoonCoin {
         if (balanceOf(sender) >= _value) {
             accountBalance[sender] -= _value;
             accountBalance[_to] += _value;
+            emit Transfer(sender, _to, _value);
             // Here I should fire the Transfer event
             // I should decide to allow 0 transfer or not
             return true;
@@ -46,8 +47,8 @@ contract MasoonCoin {
             accountBalance[_from] -= _value;
             allowance[_from][sender] -= _value;
             accountBalance[_to] += _value;
+            emit Transfer(_from, _to, _value);
             return true;
-            // Fire the transfer event
             // allow 0 transfer ?
         } else {
             // Throw
