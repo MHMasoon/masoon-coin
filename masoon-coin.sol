@@ -43,7 +43,7 @@ contract MasoonCoin {
 
     function transferFrom(address _from, address _to, uint256 _value) public returns (bool success) {
         address sender = msg.sender;
-        if (accountBalance[_from] >= _value && allowance[_from][sender] >= _value) {
+        if (accountBalance[_from] >= _value && allowances[_from][sender] >= _value) {
             accountBalance[_from] -= _value;
             allowance[_from][sender] -= _value;
             accountBalance[_to] += _value;
