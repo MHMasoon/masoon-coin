@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "description": "An ERC-20 test token",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "compile": "./node_modules/.bin/solcjs --bin --base-path . masoon-coin.sol"
+    "compile": "./node_modules/.bin/solcjs --bin --abi --base-path . masoon-coin.sol"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,8 @@
   },
   "homepage": "https://github.com/MHMasoon/masoon-coin#readme",
   "devDependencies": {
+    "dotenv": "^16.0.2",
+    "ethers": "^5.7.0",
     "solc": "^0.8.16"
   }
 }
