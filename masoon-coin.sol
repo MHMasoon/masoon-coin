@@ -70,4 +70,10 @@ contract MasoonCoin {
     function allowance(address _owner, address _spender) public view returns (uint256 remaining) {
         return allowances[_owner][_spender];
     }
+
+    constructor() {
+        address contractCreator = msg.sender;
+        accountBalance[contractCreator] += 1000000000000000000;
+        emit Transfer(0x0000000000000000000000000000000000000000, contractCreator, 1000000000000000000);
+    }
 }
