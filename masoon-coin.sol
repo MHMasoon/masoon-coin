@@ -44,7 +44,7 @@ contract MasoonCoin {
             return true;
         }
         else {
-            // I should throw
+            revert;
         }
     }
 
@@ -57,7 +57,7 @@ contract MasoonCoin {
             emit Transfer(_from, _to, _value);
             return true;
         } else {
-            // Throw
+            revert;
         }
     }
 
