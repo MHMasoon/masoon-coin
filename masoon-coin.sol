@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.16;
+pragma solidity 0.8.17;
 
 contract MasoonCoin {
 
@@ -14,6 +14,8 @@ contract MasoonCoin {
 
     event Transfer(address indexed _from, address indexed _to, uint256 _value);
     event Approval(address indexed _owner, address indexed _spender, uint256 _value);
+
+    error NoSufficientFundsOrAllowance();
 
     function name() pure public returns (string memory) {
         return 'MasoonCoin';
@@ -44,7 +46,7 @@ contract MasoonCoin {
             return true;
         }
         else {
-            revert;
+            revert NoSufficientFundsOrAllowance();
         }
     }
 
@@ -57,7 +59,7 @@ contract MasoonCoin {
             emit Transfer(_from, _to, _value);
             return true;
         } else {
-            revert;
+            revert NoSufficientFundsOrAllowance();
         }
     }
 
