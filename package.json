@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "compile": "./node_modules/.bin/solcjs --bin --abi --base-path . masoon-coin.sol"
+    "compile": "./node_modules/.bin/solcjs --bin --abi --base-path . masoon-coin.sol",
+    "deploy": "npm run deploy.js"
   },
   "repository": {
     "type": "git",
