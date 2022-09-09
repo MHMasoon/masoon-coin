@@ -19,5 +19,5 @@ masoonCoinFactory.deploy()
     console.log(masoonCoin.address);
 })
 .catch((err)=> {
-    console.log('Error');
+    console.log(err);
 })
