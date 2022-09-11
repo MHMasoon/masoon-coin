@@ -3,10 +3,15 @@ pragma solidity 0.8.17;
 
 contract MasoonCoin {
 
+    string tokenName = 'MasoonCoin';
+    string tokenSymbol = 'MSC';
+    uint256 tokenTotalSupply = 1000;
+    uint256 tokenDecimals = 0;
+
     constructor() {
         address contractCreator = msg.sender;
-        accountBalance[contractCreator] += 1000;
-        emit Transfer(0x0000000000000000000000000000000000000000, contractCreator, 1000);
+        accountBalance[contractCreator] += tokenTotalSupply;
+        emit Transfer(0x0000000000000000000000000000000000000000, contractCreator, tokenTotalSupply);
     }
 
     mapping(address => uint256) accountBalance;
@@ -17,20 +22,20 @@ contract MasoonCoin {
 
     error NoSufficientFundsOrAllowance();
 
-    function name() pure public returns (string memory) {
-        return 'MasoonCoin';
+    function name() view public returns (string memory) {
+        return tokenName;
     }
 
-    function symbol() pure public returns (string memory) {
-        return 'MSC';
+    function symbol() view public returns (string memory) {
+        return tokenSymbol;
     }
 
-    function decimals() pure public returns (uint8) {
-        return 0;
+    function decimals() view public returns (uint256) {
+        return tokenDecimals;
     }
 
-    function totalSupply() pure public returns (uint256) {
-        return 1000;
+    function totalSupply() view public returns (uint256) {
+        return tokenTotalSupply;
     }
 
     function balanceOf(address _owner) public view returns (uint256 balance) {
