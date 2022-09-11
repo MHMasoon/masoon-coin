@@ -16,7 +16,7 @@ const masoonCoinFactory = new ethers.ContractFactory(contractAbi, contractBin, w
 
 masoonCoinFactory.deploy()
 .then((token)=> {
-    console.log(masoonCoin.address);
+    console.log(token.address);
 })
 .catch((err)=> {
     console.log(err);
