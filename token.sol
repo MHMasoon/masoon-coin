@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.17;
 
-contract MasoonCoin {
+contract Token {
 
     string tokenName = 'MasoonCoin';
     string tokenSymbol = 'MSC';
